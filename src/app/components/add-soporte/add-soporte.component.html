@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="starter-template">
+        <div class="row justify-content-center">
+            <div class="col-md-8 align-self-center mt-5">
+                <div class="card">
+                    <div class="card-header font-weight-bolder header-info">
+                        Contacto de soporte!
+                    </div>
+                </div>
+  				<div class="text-left p-5 submit-form">
+    				<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+						<div *ngIf="myalert" class="text-center mb-4">
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								<h5>Formulario enviado exitosamente!</h5>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+				    	</div>
+      					<div class="form-group">
+        					<label for="fullname" class="font-weight-bolder">Nombre completo:</label>
+        					<input
+          						type="text"
+          						class="form-control"
+          						id="fullname"
+          						required
+								formControlName="fullname" 
+								[ngClass]="{'is-invalid':submitted && f.fullname.errors}"
+							/>
+							<div *ngIf="submitted && f.fullname.errors" class="invalid-feedback">
+								<div *ngIf="f.fullname.errors.required">Por favor, ingrese su nombre completo</div>
+							</div>
+      					</div>
+
+      					<div class="form-group">
+        					<label for="namecompany" class="font-weight-bolder">Nombre de la empresa:</label>
+        					<input
+          						type="text"
+						        class="form-control"
+						        id="namecompany"
+						        required
+								formControlName="namecompany"
+								[ngClass]="{'is-invalid':submitted && f.namecompany.errors}"
+							/>
+							<div *ngIf="submitted && f.namecompany.errors" class="invalid-feedback">
+								<div *ngIf="f.namecompany.errors.required">Por favor, ingrese el nombre de la empresa</div>
+							</div>
+						</div>
+
+					    <div class="form-group">
+					        <label for="email" class="font-weight-bolder">Correo Electrónico:</label>
+					        <input
+					            type="text"
+					            class="form-control"
+					            id="email"
+					            required
+								formControlName="email"
+								[ngClass]="{'is-invalid':submitted && f.email.errors}"
+							/>
+							<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+								<div *ngIf="f.email.errors.required">Por favor, ingrese su correo electrónico</div>
+								<div *ngIf="f.email.errors.email">Por favor, ingrese un correo electrónico válido</div>
+							</div>
+					    </div>
+
+					    <div class="form-row">
+					    	<div class="form-group col-md-6">
+						        <label for="phone" class="font-weight-bolder">Teléfono:</label>
+						        <input
+						            type="text"
+						            class="form-control"
+						            id="phone"
+						            required
+									formControlName="phone"
+									[ngClass]="{'is-invalid':submitted && f.phone.errors}"
+								/>
+								<div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+									<div *ngIf="f.phone.errors.required">Por favor, ingrese su teléfono</div>
+								</div>
+						    </div>
+
+						    <div class="form-group col-md-6">
+						        <label for="category" class="font-weight-bolder">Categoría:</label>
+						        <select id="category" class="browser-default custom-select mb-4" required
+						             formControlName="category" [ngClass]="{'is-invalid':submitted && f.category.errors}">
+	                                <option value="" disabled></option>
+	                                <option value="1" selected>Facturación</option>
+	                                <option value="2">Soporte Técnico</option>
+	                                <option value="3">Ventas</option>
+	                                <option value="4">Información General</option>
+								</select>
+								<div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+									<div *ngIf="f.category.errors.required">Por favor, seleccione una categoría</div>
+								</div>
+						    </div>
+					    </div>
+
+					    <div class="form-group">
+					        <label for="message" class="font-weight-bolder">Mensaje:</label>
+                        	<textarea id="message" class="form-control rounded-0" rows="3" placeholder="Escriba su mensaje" required
+								 formControlName="message" [ngClass]="{'is-invalid':submitted && f.message.errors}"></textarea>
+							<div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+								<div *ngIf="f.message.errors.required">Por favor, ingrese su mensaje</div>
+							</div>
+					    </div>
+
+						<button class="btn font-weight-bolder button-send"><fa-icon [icon]="faPaperPlane" class="mr-2"></fa-icon>Enviar</button>
+    				</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

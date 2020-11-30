@@ -1,0 +1,17 @@
+.header-info {
+    font-size: xx-large;
+    background-color: chartreuse;
+    color: white;
+    text-align: center;
+    border: none;
+}
+
+.button-send {
+    background-color: chartreuse;
+    color: white;
+    border: none;
+}
+
+.card {
+    border: none;
+}
